@@ -1,8 +1,3 @@
-(function() {
-    let requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
-    window.requestAnimationFrame = requestAnimationFrame;
-})();
-
 class Game {
 
     animation = null
@@ -11,7 +6,8 @@ class Game {
     constructor() {
         this.canvas = undefined
         this.ctx = undefined
-        this.fighter = new Player(this, 100, 180, 864, 280, 2, 8)
+        this.fighter = new Player(this, 150, 180)
+        this.fighter2 = new Player(this, 800-300, 180)
         this.background = undefined
         this.score = 0
         //this.backgroundImg = new Image();
@@ -28,7 +24,7 @@ class Game {
         // this.fighter.drawPlayer(x,y,sw,sh,sc,sr)
         this.x = 0
         this.y = 0
-        this.animation = this.start.bind(this)
+        this.animation = this.start.bind(this) // calling the start method
         this.animation()
     }
    
@@ -61,6 +57,7 @@ class Game {
     }
 
     drawMainCharacters() {
-        this.fighter.drawSprite("./images/character.png")
+        this.fighter.drawSprite("./images/character.png", 864, 280, 2, 8)
+        this.fighter2.drawSprite("./images/character.png", 864, 280, 2, 8)
     }
 }
