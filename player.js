@@ -27,25 +27,51 @@ class Player extends Spritesheet {
   }
   
   move() {
+
+    if (this.controller.keyPressed == false || this.controller.unsuportedKey == true) {
+      this.game.fighter.drawSprite("./images/sprites-first-player-idle.png", 686, 240, 2, 8)
+    }
+
+    if (this.controller.rightKey && this.controller.leftKey) {
+      if (this.x <= 750 - this.width && this.x >= 10)
+      this.game.fighter.drawSprite("./images/sprites-first-player-run.png", 886, 245, 2, 8)
+    }
+
     this.applyPhisics()  
+
     if (this.controller.upKey && this.jumping == false) {
       if (this.y > 0){
-        this.y_velocity -= 60;
-        this.jumping = true;
+        //let myTimer = setInterval(()=>{
+          this.game.fighter.drawSprite("./images/sprites-first-player-idle.png", 686, 240, 2, 8)
+          //this.game.fighter.drawSprite("./images/sprites-first-player-jump.png", 632, 220, 2, 5)
+        //}, 500)
+        //clearInterval(myTimer)
+        this.y_velocity -= 60
+        this.jumping = true
       }
     }
 
-    if (this.controller.leftKey) {
+    if (this.controller.leftKey && !(this.controller.rightKey)) { //&& !(this.controller.rightKey)
       if (this.x >= 10) this.x_velocity -= 5;
+      //pass something to change the sprite
+      this.game.fighter.drawSprite("./images/sprites-first-player-run.png", 886, 245, 2, 8)
       this.left = true
       this.right = false
     }
 
-    if (this.controller.rightKey) {
-      if (this.x <= 750 - this.width) this.x_velocity += 5;
+    if (this.controller.rightKey && !(this.controller.leftKey)) { //&& !(this.controller.leftKey)
+      if (this.x <= 750 - this.width) this.x_velocity += 5
+      this.game.fighter.drawSprite("./images/sprites-first-player-run.png", 886, 245, 2, 8)
       this.left = false
       this.right = true
     }
+
+    if (this.controller.kickKey) {
+      if (this.x <= 750 - this.width && this.x >= 10)
+      this.game.fighter.drawSprite("./images/sprites-first-player-kick.png", 914, 245, 2, 7)
+    }
+
+
 
     this.applyPhisics()
     

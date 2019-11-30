@@ -7,7 +7,7 @@ class Game {
         this.canvas = undefined
         this.ctx = undefined
         this.fighter = new Player(this, 150, 180)
-        this.fighter2 = new Player(this, 800-300, 180)
+        //this.fighter2 = new Player(this, 800-300, 180)
         this.background = undefined
         this.score = 0
         //this.backgroundImg = new Image();
@@ -33,7 +33,7 @@ class Game {
         // setInterval(() => {
          if(this.process++ == 2) { // animation frame slower
               this.clear()
-              this.drawMainCharacters()
+              //this.drawMainCharacters()
               this.fighter.move()
               this.process = 0
           }
@@ -57,7 +57,7 @@ class Game {
     }
 
     drawMainCharacters() {
-        this.fighter.drawSprite("./images/sprites-first-player-idle.png", 686, 240, 2, 8)
-        this.fighter2.drawSprite("./images/character.png", 864, 280, 2, 8)
+        //this.fighter.drawSprite("./images/sprites-first-player-idle.png", 686, 240, 2, 8)
+        //this.fighter2.drawSprite("./images/character.png", 864, 280, 2, 8)
     }
 }

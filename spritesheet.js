@@ -6,11 +6,11 @@ class Spritesheet {
     this.y = y
     // creating the img element to receive the sprite
     this.img = new Image()
-    //The 0th (first) row is for the right movement in the actual example
+    //The 1st (0) row is for the right movement
     this.trackRight = 0
-    //1st (second) row for the left movement (counting the index from 0) in the actual example
+    //The 2nd (1) row for the left movement (counting the index from 0)
     this.trackLeft = 1
-    //Each row contains 8 frame and at start we will display the first frame (assuming the index from 0)
+    //Each row contains ...X frames and at start we will display the first frame (assuming the index from 0)
     this.curFrame = 0
     //tracking the movement left 
     this.left = false
@@ -24,12 +24,12 @@ class Spritesheet {
     this.srcX = 0
     this.srcY = 0
     //the with and height of our spritesheet
-    this.spriteWidth = spriteWidth // current example 864
-    this.spriteHeight = spriteHeight // current example 280
+    this.spriteWidth = spriteWidth 
+    this.spriteHeight = spriteHeight 
     
-    //we are having two rows and 8 cols in the current sprite sheet
-    this.spriteRows = spriteRows // current example 2
-    this.spriteCols = spriteCols // current example 8
+    //we are having two rows and ...X cols in the current sprite sheet
+    this.spriteRows = spriteRows 
+    this.spriteCols = spriteCols 
 
     //To get the width of a single sprite we divided the width of sprite with the number of cols because all the sprites are of equal width and height 
     this.width = this.spriteWidth / this.spriteCols
