@@ -12,7 +12,7 @@ class Spritesheet {
     this.trackLeft = 1
     //Each row contains 8 frame and at start we will display the first frame (assuming the index from 0)
     this.curFrame = 0
-    //tracking the movement left and write 
+    //tracking the movement left 
     this.left = false
     //Assuming that at start the character will move right side 
     this.right = true
@@ -24,12 +24,12 @@ class Spritesheet {
     this.srcX = 0
     this.srcY = 0
     //the with and height of our spritesheet
-    this.spriteWidth = spriteWidth // current exemple 864
-    this.spriteHeight = spriteHeight // current exemple 280
+    this.spriteWidth = spriteWidth // current example 864
+    this.spriteHeight = spriteHeight // current example 280
     
     //we are having two rows and 8 cols in the current sprite sheet
-    this.spriteRows = spriteRows // current exemple 2
-    this.spriteCols = spriteCols // current exemple 8
+    this.spriteRows = spriteRows // current example 2
+    this.spriteCols = spriteCols // current example 8
 
     //To get the width of a single sprite we divided the width of sprite with the number of cols because all the sprites are of equal width and height 
     this.width = this.spriteWidth / this.spriteCols

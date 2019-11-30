@@ -57,7 +57,7 @@ class Game {
     }
 
     drawMainCharacters() {
-        this.fighter.drawSprite("./images/character.png", 864, 280, 2, 8)
+        this.fighter.drawSprite("./images/sprites-first-player-idle.png", 686, 240, 2, 8)
         this.fighter2.drawSprite("./images/character.png", 864, 280, 2, 8)
     }
 }
