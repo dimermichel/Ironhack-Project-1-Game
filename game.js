@@ -1,9 +1,8 @@
 class Game {
 
-    animation = null
-    process = 0 // frame slower
-
     constructor() {
+        this.animation = null
+        this.process = 0 // frame slower
         this.canvas = undefined
         this.ctx = undefined
         this.fighter = new Player(this, 150, 180)

@@ -1,19 +1,17 @@
 class Player extends Spritesheet {
-  controller = new Controller(87, 68, 65, 16)
-  x_velocity = 0
-  y_velocity = 0
-
+  
   constructor(game, x, y, spriteWidth, spriteHeight, spriteRows, spriteCols) {
     super(game, x, y, spriteWidth, spriteHeight, spriteRows, spriteCols)
-    this.jumping = false;
-    this.x_velocity = 0;
-    this.y_velocity = 0;
+    this.jumping = false
+    this.x_velocity = 0
+    this.y_velocity = 0
+    this.controller = new Controller(87, 68, 65, 16)
     window.addEventListener("keyup", this.controller.keyListener.bind(this.controller)); 
     window.addEventListener("keydown", this.controller.keyListener.bind(this.controller));
   }
 
   applyPhisics(){
-    this.y_velocity += 4;// gravity
+    this.y_velocity += 5;// gravity
     this.x += this.x_velocity;
     this.y += this.y_velocity;
     this.x_velocity *= 0.8;// friction
@@ -27,41 +25,33 @@ class Player extends Spritesheet {
   }
   
   move() {
-
-    if (this.controller.keyPressed == false || this.controller.unsuportedKey == true) {
+    
+    //idle
+    if ((!this.controller.kickKey && !this.controller.leftKey && !this.controller.rightKey)) {
       this.game.fighter.drawSprite("./images/sprites-first-player-idle.png", 686, 240, 2, 8)
     }
-
-    if (this.controller.rightKey && this.controller.leftKey) {
+    
+    //running bouth directions
+    if (this.controller.rightKey && this.controller.leftKey && !this.controller.kickKey) {
       if (this.x <= 750 - this.width && this.x >= 10)
       this.game.fighter.drawSprite("./images/sprites-first-player-run.png", 886, 245, 2, 8)
     }
-    //this.game.fighter.drawSprite("./images/sprites-first-player-idle.png", 686, 240, 2, 8)
-
-    this.applyPhisics()  
     
     if (this.controller.upKey && this.jumping == false) {
       if (this.y > 0){
         this.y_velocity -= 60
         this.jumping = true  
-      }
+      } 
     }
     
-    // while (this.jumping == true) {
-    //   this.game.clear()
-    //   this.game.fighter.drawSprite("./images/sprites-first-player-jump.png", 632, 220, 2, 5)
-    //   this.applyPhisics()     
-    // }
-
-    if (this.controller.leftKey && !(this.controller.rightKey)) { //&& !(this.controller.rightKey)
+    if (this.controller.leftKey && !this.controller.rightKey && !this.controller.kickKey) { //&& !(this.controller.rightKey)
       if (this.x >= 10) this.x_velocity -= 5;
-      //pass something to change the sprite
       this.game.fighter.drawSprite("./images/sprites-first-player-run.png", 886, 245, 2, 8)
       this.left = true
       this.right = false
     }
 
-    if (this.controller.rightKey && !(this.controller.leftKey)) { //&& !(this.controller.leftKey)
+    if (this.controller.rightKey && !this.controller.leftKey && !this.controller.kickKey) { //&& !(this.controller.leftKey)
       if (this.x <= 750 - this.width) this.x_velocity += 5
       this.game.fighter.drawSprite("./images/sprites-first-player-run.png", 886, 245, 2, 8)
       this.left = false
@@ -72,8 +62,6 @@ class Player extends Spritesheet {
       if (this.x <= 750 - this.width && this.x >= 10)
       this.game.fighter.drawSprite("./images/sprites-first-player-kick.png", 914, 245, 2, 7)
     }
-
-
 
     this.applyPhisics()
     
