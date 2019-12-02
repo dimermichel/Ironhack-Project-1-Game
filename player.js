@@ -1,5 +1,5 @@
 class Player extends Spritesheet {
-  controller = new Controller()
+  controller = new Controller(87, 68, 65, 16)
   x_velocity = 0
   y_velocity = 0
 
@@ -36,20 +36,22 @@ class Player extends Spritesheet {
       if (this.x <= 750 - this.width && this.x >= 10)
       this.game.fighter.drawSprite("./images/sprites-first-player-run.png", 886, 245, 2, 8)
     }
+    //this.game.fighter.drawSprite("./images/sprites-first-player-idle.png", 686, 240, 2, 8)
 
     this.applyPhisics()  
-
+    
     if (this.controller.upKey && this.jumping == false) {
       if (this.y > 0){
-        //let myTimer = setInterval(()=>{
-          this.game.fighter.drawSprite("./images/sprites-first-player-idle.png", 686, 240, 2, 8)
-          //this.game.fighter.drawSprite("./images/sprites-first-player-jump.png", 632, 220, 2, 5)
-        //}, 500)
-        //clearInterval(myTimer)
         this.y_velocity -= 60
-        this.jumping = true
+        this.jumping = true  
       }
     }
+    
+    // while (this.jumping == true) {
+    //   this.game.clear()
+    //   this.game.fighter.drawSprite("./images/sprites-first-player-jump.png", 632, 220, 2, 5)
+    //   this.applyPhisics()     
+    // }
 
     if (this.controller.leftKey && !(this.controller.rightKey)) { //&& !(this.controller.rightKey)
       if (this.x >= 10) this.x_velocity -= 5;
