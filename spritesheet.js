@@ -49,19 +49,23 @@ class Spritesheet {
   }
 
   updateFrame() {
-
-    //Updating the frame index 
-    this.curFrame = ++ this.curFrame % this.frameCount // 8 % 8 = 0 in the current example
-
-    //Calculating the x coordinate for spritesheet 
-    this.srcX = this.curFrame * this.width
+    
     //if the charcher is facing right
     if(this.right){
+      //Updating the frame index 
+      this.curFrame = ++ this.curFrame % this.frameCount // 8 % 8 = 0 in the current example
+      //Calculating the x coordinate for spritesheet 
+      this.srcX = this.curFrame * this.width
       //calculating y coordinate for spritesheet
       this.srcY = this.trackRight * this.height
     }
     //if the charcher is facing left
     if(this.left){
+      //Updating the frame index in the oposite way
+      this.curFrame --
+       if (this.curFrame < 0) this.curFrame = this.frameCount - 1
+      //Calculating the x coordinate for spritesheet 
+      this.srcX = this.curFrame * this.width
       //calculate srcY 
       this.srcY = this.trackLeft * this.height
     } 
