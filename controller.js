@@ -19,17 +19,17 @@ class Controller {
         //console.log(event.keyCode)
         if (possibleKeystrokes.includes(event.keyCode)) {
             this.keyPressed = (event.type == "keydown") ? true : false
-            this.key = event.keyCode
+            //this.key = event.keyCode
             switch (event.keyCode) {
                 case this.leftControl: //65
                     this.leftKey = this.keyPressed
-                    break;
+                    break
                 case this.jumpControl: //38
                     this.upKey = this.keyPressed
-                    break;
+                    break
                 case this.rightControl: //68
                     this.rightKey = this.keyPressed
-                    break;
+                    break
                  case this.kickControl: //16
                     this.kickKey = this.keyPressed
                     break

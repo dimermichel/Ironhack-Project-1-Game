@@ -5,8 +5,10 @@ class Game {
         this.process = 0 // frame slower
         this.canvas = undefined
         this.ctx = undefined
-        this.fighter = new Player(this, 150, 180)
-        //this.fighter2 = new Player(this, 800-300, 180)
+        this.controller1 = new Controller(87, 68, 65, 16)
+        this.controller2 = new Controller(38, 39, 37, 186)
+        this.player1 = new Player(this, 150, 180, this.controller1, Player.RIGHT)
+        this.player2 = new Player(this, 800-250, 180, this.controller2, Player.LEFT)
         this.background = undefined
         this.score = 0
         //this.backgroundImg = new Image();
@@ -33,7 +35,8 @@ class Game {
          if(this.process++ == 2) { // animation frame slower
               this.clear()
               //this.drawMainCharacters()
-              this.fighter.move()
+              this.player1.move()
+              this.player2.move()
               this.process = 0
           }
           requestAnimationFrame(this.animation) //more efficient method

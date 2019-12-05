@@ -53,7 +53,7 @@ class Spritesheet {
     //if the charcher is facing right
     if(this.right){
       //Updating the frame index 
-      this.curFrame = ++ this.curFrame % this.frameCount // 8 % 8 = 0 in the current example
+      this.curFrame = ++ this.curFrame % this.frameCount // 1 % 8 = 1 -- 2 % 8 = 2 -- 8 % 8 = 0
       //Calculating the x coordinate for spritesheet 
       this.srcX = this.curFrame * this.width
       //calculating y coordinate for spritesheet
