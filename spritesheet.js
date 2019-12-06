@@ -13,9 +13,9 @@ class Spritesheet {
     //Each row contains ...X frames and at start we will display the first frame (assuming the index from 0)
     this.curFrame = 0
     //tracking the movement left 
-    this.left = false
+    this.facingLeft = false
     //Assuming that at start the character will move right side 
-    this.right = true
+    this.facingRight = true
   }
   
   drawSprite(fileName, spriteWidth, spriteHeight, spriteRows, spriteCols) {
@@ -23,19 +23,19 @@ class Spritesheet {
     //x and y coordinates of the canvas to get the single frame 
     this.srcX = 0
     this.srcY = 0
-    //the with and height of our spritesheet
+    //the width and height of our spritesheet
     this.spriteWidth = spriteWidth 
     this.spriteHeight = spriteHeight 
     
-    //we are having two rows and ...X cols in the current sprite sheet
+    //we have two rows and ...X cols in the current sprite sheet
     this.spriteRows = spriteRows 
     this.spriteCols = spriteCols 
 
-    //To get the width of a single sprite we divided the width of sprite with the number of cols because all the sprites are of equal width and height 
+    //To get the width of a single sprite we divided the width of sprite with the number of cols. Because all the sprites are of equal width and height 
     this.width = this.spriteWidth / this.spriteCols
     //Same for the height we divided the height with number of rows 
     this.height = this.spriteHeight / this.spriteRows
-    //The total frames is 8 in this current example
+    //The total frames
     this.frameCount = this.spriteCols
 
     let dsCtx = this.game.ctx
@@ -51,7 +51,7 @@ class Spritesheet {
   updateFrame() {
     
     //if the charcher is facing right
-    if(this.right){
+    if (this.facingRight) {
       //Updating the frame index 
       this.curFrame = ++ this.curFrame % this.frameCount // 1 % 8 = 1 -- 2 % 8 = 2 -- 8 % 8 = 0
       //Calculating the x coordinate for spritesheet 
@@ -60,7 +60,7 @@ class Spritesheet {
       this.srcY = this.trackRight * this.height
     }
     //if the charcher is facing left
-    if(this.left){
+    if (this.facingLeft) {
       //Updating the frame index in the oposite way
       this.curFrame --
        if (this.curFrame < 0) this.curFrame = this.frameCount - 1

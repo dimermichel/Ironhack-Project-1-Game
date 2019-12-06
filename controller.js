@@ -10,27 +10,26 @@ class Controller {
         this.rightKey = false
         this.upKey = false
         this.kickKey = false
-        this.unsuportedKey = false
     }
 
     keyListener(event) {
         event.preventDefault()
-        const possibleKeystrokes = [this.jumpControl, this.rightControl, this.leftControl, this.kickControl] //83, 40 down arrow
+        const possibleKeystrokes = [this.jumpControl, this.rightControl, this.leftControl, this.kickControl]
         //console.log(event.keyCode)
         if (possibleKeystrokes.includes(event.keyCode)) {
             this.keyPressed = (event.type == "keydown") ? true : false
             //this.key = event.keyCode
             switch (event.keyCode) {
-                case this.leftControl: //65
+                case this.leftControl: 
                     this.leftKey = this.keyPressed
                     break
-                case this.jumpControl: //38
+                case this.jumpControl: 
                     this.upKey = this.keyPressed
                     break
-                case this.rightControl: //68
+                case this.rightControl: 
                     this.rightKey = this.keyPressed
                     break
-                 case this.kickControl: //16
+                 case this.kickControl:
                     this.kickKey = this.keyPressed
                     break
             }   
