@@ -3,26 +3,25 @@ class Game {
     constructor() {
         this.animation = null
         this.process = 0 // frame slower
-        this.canvas = undefined
-        this.ctx = undefined
+        this.canvas = document.getElementById("canvas")
+        this.ctx = this.canvas.getContext("2d")
         this.controller1 = new Controller(87, 68, 65, 16)
         this.controller2 = new Controller(38, 39, 37, 186)
-        this.player1 = new Player(this, 150, 180, this.controller1, Player.RIGHT)
-        this.player2 = new Player(this, 800-250, 180, this.controller2, Player.LEFT)
-        //this.background = undefined
-        //this.backgroundImg = new Image();
-        this.x = undefined
-        this.y = undefined
+        this.healthP1Display = document.getElementById('p1-health')
+        this.healthP2Display = document.getElementById('p2-health')
+        this.player1ScoreDisplay = document.getElementById('p1-kills')
+        this.player2ScoreDisplay = document.getElementById('p2-kills')
+        this.player1 = new Player(this, 150, 180, this.controller1, Player.RIGHT, this.healthP1Display, this.player1ScoreDisplay)
+        this.player2 = new Player(this, 550, 180, this.controller2, Player.LEFT, this.healthP2Display, this.player2ScoreDisplay)
+        this.x = 0
+        this.y = 0
         this.width = 800
         this.height = 336
+        this.isFinished = false
     }
     
 
     init() {
-        this.canvas = document.getElementById("canvas")
-        this.ctx = this.canvas.getContext("2d")
-        this.x = 0
-        this.y = 0
         this.animation = this.start.bind(this) // calling the start method
         this.animation()
     }
