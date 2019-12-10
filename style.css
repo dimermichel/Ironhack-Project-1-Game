@@ -1,12 +1,63 @@
+
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
+
 body {
+  font-family: 'Press Start 2P', cursive;
+  padding: 0;
+  margin: 0;
   background-color: #202020;
   color: #fff;
+  font-size: 6pt;
+}
+
+/* Header */
+header>div {
+  /* position: fixed; */
+  z-index: 9999;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #202020;
+}
+
+nav {
+  width: 400px;
+}
+
+nav label,
+#hamburger {
+  display: none;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 10pt;
+}
+
+.michelmaia-logo {
+  width: 160px;
+  padding: 20px;
+}
+
+h1{
+  font-size: 20pt;
+  color: #76f7f9;
+  text-align: center;
 }
 
 #canvas {
   border: 5px black solid
 }
-img {
+.img-background {
   position: absolute;
   z-index: -1;
 }
@@ -23,7 +74,7 @@ kbd {
   border: 1px solid #888;
   border-radius: 3px;
   font-family: Arial;
-  font-size: 11pt;
+  font-size: 10pt;
   padding: 2px 6px;
 }
 .container {
@@ -48,7 +99,7 @@ kbd {
   width: 320px;
 }
 .fill {
-  background: #0a0;
+  background: #c161c9;
   display: block;
   height: 20px;
   position: absolute;
@@ -88,7 +139,7 @@ kbd {
   margin-left: 60px
 }
 #p1-keys kbd:nth-of-type(3) {
-  margin-left: 65px
+  margin-left: 55px
 }
 #p1-keys kbd:nth-of-type(4) {
   margin-left: 45px
@@ -97,7 +148,7 @@ kbd {
   justify-content: flex-end;
 }
 #p2-keys kbd:nth-of-type(1) {
-  margin-right: 60px;
+  margin-right: 52px;
 }
 #p2-keys kbd:nth-of-type(2) {
   margin-right: 60px
@@ -112,7 +163,7 @@ kbd {
   border-radius: 50%;
   cursor: pointer;
   display: block;
-  font-size: 30pt;
+  font-size: 35pt;
   margin: 5px;
   width: 80px;
   height: 80px;
@@ -157,14 +208,14 @@ kbd {
   background: #666;
 }
 .a-btn {
-  background: #04c;
+  background: #166d71;
 }
 .a-btn:active {
-  background: #028;
+  background: #0d3f42;
 }
 .b-btn {
-  background: #080;
+  background: #6f2d78;
 }
 .b-btn:active {
-  background: #040;
+  background: #571f5f;
 }
