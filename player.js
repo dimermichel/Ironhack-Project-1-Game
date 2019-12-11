@@ -36,10 +36,10 @@ class Player extends Spritesheet {
     this.y_velocity *= 0.8// friction
     
     if (this.collision(player)){
-      this.x_velocity = 0
+      this.x_velocity = 0 // slow down player when hit the other
     }
 
-    if (this.y > 336 - this.height - 10) {
+    if (this.y > 336 - this.height - 10) { // keep players on the ground
       this.jumping = false
       this.y = 336 - this.height - 10
       this.y_velocity = 0
@@ -68,6 +68,12 @@ class Player extends Spritesheet {
       
     }
 
+    //block
+    if (this.controller.blockKey
+        && !this.hurt && !this.dead && !this.win) {
+      this.drawSprite(this.type === Player.RIGHT ? "./images/sprites-first-player-block.png" : "./images/sprites-second-player-block.png", 180, 237, 2, 2)
+    }
+
     //hurt
     if(this.hurt && !this.dead && !this.win){
       this.drawSprite(this.type === Player.RIGHT ? "./images/sprites-first-player-hurt.png" : "./images/sprites-second-player-hurt.png", 615, 261, 2, 5)
@@ -75,21 +81,27 @@ class Player extends Spritesheet {
     }
     
     //idle
-    if ((!this.controller.kickKey && !this.controller.leftKey 
-      && !this.controller.rightKey && !this.hurt 
-      && !this.dead && !this.win)) {
+    if (!this.controller.blockKey 
+        && !this.controller.kickKey 
+        && !this.controller.leftKey
+        && !this.controller.rightKey 
+        && !this.hurt && !this.dead && !this.win) {
       this.drawSprite(this.type === Player.RIGHT ? "./images/sprites-first-player-idle.png" : "./images/sprites-second-player-idle.png", 686, 240, 2, 8)
     }
     
     //running bouth directions same time logic
-    if (this.controller.rightKey && this.controller.leftKey 
-      && !this.controller.kickKey && !this.hurt && !this.dead && !this.win) {
-      if (this.x <= 750 - this.width && this.x >= 10)
+    if (this.controller.rightKey 
+      && this.controller.leftKey 
+      && !this.controller.kickKey
+      && !this.controller.blockKey
+      && !this.hurt && !this.dead && !this.win) {
       this.drawSprite(this.type === Player.RIGHT ? "./images/sprites-first-player-run.png" : "./images/sprites-second-player-run.png", 886, 245, 2, 8)
     }
     
     //jumping
-    if (this.controller.upKey && this.jumping == false && !this.hurt && !this.dead && !this.win) {
+    if (this.controller.upKey 
+      && !this.jumping 
+      && !this.hurt && !this.dead && !this.win) {
       if (this.y > 0){
         this.y_velocity -= 60
         this.jumping = true  
@@ -97,8 +109,11 @@ class Player extends Spritesheet {
     }
     
     //running left
-    if (this.controller.leftKey && !this.controller.rightKey 
-      && !this.controller.kickKey && !this.hurt && !this.dead && !this.win) {
+    if (this.controller.leftKey 
+      && !this.controller.rightKey 
+      && !this.controller.kickKey
+      && !this.controller.blockKey
+      && !this.hurt && !this.dead && !this.win) {
       if (this.x >= 10 && !this.collision(player)) this.x_velocity -= 5
       else if (this.collision(player) && this.facingLeft && player.facingLeft) {
         this.x_velocity -= 5
@@ -112,30 +127,39 @@ class Player extends Spritesheet {
     }
 
     //running right
-    if (this.controller.rightKey && !this.controller.leftKey 
-      && !this.controller.kickKey && !this.hurt && !this.dead && !this.win) {
+    if (this.controller.rightKey 
+      && !this.controller.leftKey 
+      && !this.controller.kickKey
+      && !this.controller.blockKey
+      && !this.hurt && !this.dead && !this.win) {
       if (this.x <= 750 - this.width && !this.collision(player)) this.x_velocity += 5
-      else if (this.collision(player) && this.facingRight && player.facingRight) {
-        this.x_velocity += 5
-      } else {
-        this.x_velocity = 0
-        this.x = this.x
-      }
+        else if (this.collision(player) && this.facingRight && player.facingRight) {
+          this.x_velocity += 5
+        } else {
+          this.x_velocity = 0
+          this.x = this.x
+        }
       this.drawSprite(this.type === Player.RIGHT ? "./images/sprites-first-player-run.png" : "./images/sprites-second-player-run.png", 886, 245, 2, 8)
       this.facingLeft = false
       this.facingRight = true
     }
 
     //kick
-    if (this.controller.kickKey && !this.hurt && !this.dead && !this.win) {
+    if (this.controller.kickKey
+        && !this.controller.blockKey
+        && !this.hurt && !this.dead && !this.win) {
       //avoid holding key logic
       if (this.controller.keyCount < 2){
         this.drawSprite(this.type === Player.RIGHT ? "./images/sprites-first-player-kick.png" : "./images/sprites-second-player-kick.png", 914, 245, 2, 7)
         if (this.collision(player) && !player.dead && !player.hurt) {
           if(this.facingLeft && player.facingLeft) return
           if(this.facingRight && player.facingRight) return
-          this.hit(player)
-          setTimeout(()=> player.hurt = false, 250)
+          if (player.controller.blockKey){
+            this.game.sound[1].play()
+          } else {
+              this.hit(player)
+              setTimeout(()=> player.hurt = false, 250)
+          }
         }
       } else {
         //draw idle sprite when hold kick is detected
@@ -143,7 +167,7 @@ class Player extends Spritesheet {
       }
     }
 
-    //return key count to 0
+    //return key count to 0 - prevent holding kickKey logic
     if (this.controller.keyPressed == false) this.controller.keyCount = 0
 
     this.applyPhisics(player)
@@ -153,7 +177,6 @@ class Player extends Spritesheet {
   collision(player) {
     if (this.x < player.x + player.width && this.x + this.width > player.x &&
         this.y < player.y + player.height && this.y + this.height > player.y){
-        //window.location.reload();
         return true
     } else return false
   }
