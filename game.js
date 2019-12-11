@@ -5,7 +5,7 @@ class Game {
         this.process = 0 // frame slower
         this.canvas = document.getElementById("canvas")
         this.ctx = this.canvas.getContext("2d")
-        this.controller1 = new Controller(87, 68, 65, 16)
+        this.controller1 = new Controller(87, 68, 65, 32)
         this.controller2 = new Controller(38, 39, 37, 186)
         this.healthP1Display = document.getElementById('p1-health')
         this.healthP2Display = document.getElementById('p2-health')
@@ -18,10 +18,13 @@ class Game {
         this.width = 800
         this.height = 336
         this.isFinished = false
+        // load sounds
+        this.sound = new Array()
     }
     
 
     init() {
+        this.sound[0] = new Audio('./sounds/kick.wav');
         this.animation = this.start.bind(this) // calling the start method
         this.animation()
     }

@@ -219,3 +219,11 @@ kbd {
 .b-btn:active {
   background: #571f5f;
 }
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4vh 0;
+}

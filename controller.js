@@ -10,6 +10,7 @@ class Controller {
         this.rightKey = false
         this.upKey = false
         this.kickKey = false
+        this.keyCount = 0
     }
 
     keyListener(event) {
@@ -31,6 +32,7 @@ class Controller {
                     break
                  case this.kickControl:
                     this.kickKey = this.keyPressed
+                    this.keyCount++
                     break
             }   
         }
