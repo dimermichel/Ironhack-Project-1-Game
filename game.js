@@ -19,8 +19,8 @@ class Game {
         this.width = 800
         this.height = 336
         this.sound = new Array()
-        this.p1RightClickDown = document.getElementById("p1-right").addEventListener("mousedown", this.emuleKeyDown)
-        this.p1RightClickUp = document.getElementById("p1-right").addEventListener("mouseup", this.emuleKeyUp)
+        this.p1RightClickDown = document.getElementById("p1-right").addEventListener("touchstart", this.emuleKeyDown)
+        this.p1RightClickUp = document.getElementById("p1-right").addEventListener("touchend", this.emuleKeyUp)
     }
     
 
