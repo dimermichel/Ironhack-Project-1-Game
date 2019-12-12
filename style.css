@@ -133,40 +133,46 @@ kbd {
   justify-content: space-between;
 }
 #p1-keys kbd:nth-of-type(1) {
-  margin-left: 35px;
+  margin-left: 22px;
 }
 #p1-keys kbd:nth-of-type(2) {
-  margin-left: 60px
+  margin-left: 46px
 }
 #p1-keys kbd:nth-of-type(3) {
-  margin-left: 55px
+  margin-left: 43px
 }
 #p1-keys kbd:nth-of-type(4) {
-  margin-left: 45px
+  margin-left: 26px
+}
+#p1-keys kbd:nth-of-type(5) {
+  margin-left: 24px
 }
 #p2-keys {
   justify-content: flex-end;
 }
 #p2-keys kbd:nth-of-type(1) {
-  margin-right: 52px;
+  margin-right: 40px;
 }
 #p2-keys kbd:nth-of-type(2) {
-  margin-right: 60px
+  margin-right: 44px
 }
 #p2-keys kbd:nth-of-type(3) {
-  margin-right: 65px
+  margin-right: 48px
 }
 #p2-keys kbd:nth-of-type(4) {
-  margin-right: 35px
+  margin-right: 50px
 }
-.move, .a-btn, .b-btn {
+#p2-keys kbd:nth-of-type(5) {
+  margin-right: 28px
+}
+.move, .a-btn, .b-btn, .c-btn {
   border-radius: 50%;
   cursor: pointer;
   display: block;
-  font-size: 35pt;
+  font-size: 28pt;
   margin: 5px;
-  width: 80px;
-  height: 80px;
+  width: 65px;
+  height: 65px;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -174,7 +180,7 @@ kbd {
   -ms-user-select: none;
   user-select: none;
 }
-.a-btn, .b-btn {
+.a-btn, .b-btn, .c-btn {
   color: #fff;
   line-height: 2em;
   text-align: center;
@@ -186,8 +192,8 @@ kbd {
 .arrow-left {
   width: 0; 
   height: 0; 
-  border-bottom: 25px solid transparent;
-  border-top: 25px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-top: 20px solid transparent;
   border-right: 25px solid #2f2f2f;
   font-size: 0;
   line-height: 0;
@@ -195,8 +201,8 @@ kbd {
 .arrow-right {
   width: 0; 
   height: 0; 
-  border-bottom: 25px solid transparent;
-  border-top: 25px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-top: 20px solid transparent;
   border-left: 25px solid #2f2f2f;
   font-size: 0;
   line-height: 0;
@@ -218,6 +224,12 @@ kbd {
 }
 .b-btn:active {
   background: #571f5f;
+}
+.c-btn {
+  background: #2d3278;
+}
+.c-btn:active {
+  background: #1e225a;
 }
 
 /* Footer */

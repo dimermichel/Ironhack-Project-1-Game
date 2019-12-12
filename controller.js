@@ -16,6 +16,7 @@ class Controller {
     }
 
     keyListener(event) {
+        //console.log(event)
         event.preventDefault()
         const possibleKeystrokes = [this.jumpControl, this.rightControl, this.leftControl, this.kickControl, this.blockControl]
         //console.log(event.keyCode)
@@ -41,5 +42,13 @@ class Controller {
                     break
             }   
         }
+    }
+
+    p1MouseControl(){
+
+    }
+
+    p2MouseControl(){
+
     }
 }

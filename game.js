@@ -13,11 +13,14 @@ class Game {
         this.player2ScoreDisplay = document.getElementById('p2-kills')
         this.player1 = new Player(this, 150, 180, this.controller1, Player.RIGHT, this.healthP1Display, this.player1ScoreDisplay)
         this.player2 = new Player(this, 550, 180, this.controller2, Player.LEFT, this.healthP2Display, this.player2ScoreDisplay)
+        //console.log(this.player1)
         this.x = 0
         this.y = 0
         this.width = 800
         this.height = 336
         this.sound = new Array()
+        this.p1RightClickDown = document.getElementById("p1-right").addEventListener("mousedown", this.emuleKeyDown)
+        this.p1RightClickUp = document.getElementById("p1-right").addEventListener("mouseup", this.emuleKeyUp)
     }
     
 
@@ -45,4 +48,20 @@ class Game {
     clear() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
     }
+
+    emuleKeyDown(){
+        console.log('I was clicked')
+        const event = new KeyboardEvent('keydown', {
+            keyCode: 68,
+        })
+        window.dispatchEvent(event)
+    }
+
+    emuleKeyUp() {
+        console.log('I was released')
+        const event = new KeyboardEvent('keyup', {
+            keyCode: 68,
+        })
+        window.dispatchEvent(event)
+     }
 }
