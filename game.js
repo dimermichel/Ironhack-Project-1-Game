@@ -5,22 +5,19 @@ class Game {
         this.process = 0 // frame slower
         this.canvas = document.getElementById("canvas")
         this.ctx = this.canvas.getContext("2d")
-        this.controller1 = new Controller(87, 68, 65, 32, 16)
-        this.controller2 = new Controller(38, 39, 37, 186, 222)
+        this.controller1 = new Controller(87, 68, 65, 32, 16, 'p1')
+        this.controller2 = new Controller(38, 39, 37, 186, 222, 'p2')
         this.healthP1Display = document.getElementById('p1-health')
         this.healthP2Display = document.getElementById('p2-health')
         this.player1ScoreDisplay = document.getElementById('p1-kills')
         this.player2ScoreDisplay = document.getElementById('p2-kills')
         this.player1 = new Player(this, 150, 180, this.controller1, Player.RIGHT, this.healthP1Display, this.player1ScoreDisplay)
         this.player2 = new Player(this, 550, 180, this.controller2, Player.LEFT, this.healthP2Display, this.player2ScoreDisplay)
-        //console.log(this.player1)
         this.x = 0
         this.y = 0
         this.width = 800
         this.height = 336
         this.sound = new Array()
-        this.p1RightClickDown = document.getElementById("p1-right").addEventListener("touchstart", this.emuleKeyDown)
-        this.p1RightClickUp = document.getElementById("p1-right").addEventListener("touchend", this.emuleKeyUp)
     }
     
 
@@ -48,20 +45,4 @@ class Game {
     clear() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
     }
-
-    emuleKeyDown(){
-        console.log('I was clicked')
-        const event = new KeyboardEvent('keydown', {
-            keyCode: 68,
-        })
-        window.dispatchEvent(event)
-    }
-
-    emuleKeyUp() {
-        console.log('I was released')
-        const event = new KeyboardEvent('keyup', {
-            keyCode: 68,
-        })
-        window.dispatchEvent(event)
-     }
 }
