@@ -2,7 +2,7 @@ class Game {
 
     constructor() {
         this.animation = null
-        this.process = 0 // frame slower
+        //this.process = 0 // frame slower
         this.canvas = document.getElementById("canvas")
         this.ctx = this.canvas.getContext("2d")
         this.controller1 = new Controller(87, 68, 65, 32, 16, 'p1')
@@ -31,15 +31,15 @@ class Game {
     }
    
     start() {
-        // setInterval(() => {
-         if(this.process++ == 2) { // animation frame slower
+         setInterval(() => {
+         //if(this.process++ == 2) { // animation frame slower
               this.clear()
               this.player1.moveAndDraw(this.player2)
               this.player2.moveAndDraw(this.player1)
-              this.process = 0
-          }
-          requestAnimationFrame(this.animation) //more efficient method
-        // }, 60);
+              //this.process = 0
+          //}
+          //requestAnimationFrame(this.animation) //more efficient method but too fast in powerful PCs
+         }, 45)
     }
 
     clear() {
