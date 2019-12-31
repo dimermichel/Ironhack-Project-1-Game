@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
 
 body {
@@ -48,7 +47,7 @@ nav a {
   padding: 20px;
 }
 
-h1{
+h1 {
   font-size: 20pt;
   color: #76f7f9;
   text-align: center;
@@ -57,17 +56,18 @@ h1{
 #canvas {
   border: 5px black solid
 }
+
 .img-background {
   position: absolute;
   z-index: -1;
 }
 
-#game-screen{
+#game-screen {
   display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	align-content: center;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
 
 kbd {
@@ -77,27 +77,34 @@ kbd {
   font-size: 10pt;
   padding: 2px 6px;
 }
+
 .container {
   margin: auto;
   width: 800px;
 }
+
 #game {
   margin-bottom: 15px;
 }
-#health-bars, #controls {
+
+#health-bars,
+#controls {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
+
 .health-label {
   line-height: 1.5em;
 }
+
 .health {
   background: #ccc;
   height: 20px;
   position: relative;
   width: 320px;
 }
+
 .fill {
   background: #c161c9;
   display: block;
@@ -105,67 +112,89 @@ kbd {
   position: absolute;
   transition: width 0.5s;
 }
+
 #controls {
   display: flex;
   flex-direction: row;
   margin-bottom: 5px;
 }
+
 #p1-health {
   left: 0;
   width: 0%;
 }
+
 #p2-health {
   right: 0;
   width: 0%;
 }
-#p1-ctrls, #p2-ctrls {
+
+#p1-ctrls,
+#p2-ctrls {
   display: flex;
   flex-direction: row;
   flex: 0 0 50%;
 }
+
 #p2-ctrls {
   justify-content: flex-end;
 }
+
 #keys {
   display: flex;
   flex-direction: row;
   flex: 0 0 50%;
   justify-content: space-between;
 }
+
 #p1-keys kbd:nth-of-type(1) {
   margin-left: 22px;
 }
+
 #p1-keys kbd:nth-of-type(2) {
   margin-left: 46px
 }
+
 #p1-keys kbd:nth-of-type(3) {
   margin-left: 43px
 }
+
 #p1-keys kbd:nth-of-type(4) {
   margin-left: 26px
 }
+
 #p1-keys kbd:nth-of-type(5) {
   margin-left: 24px
 }
+
 #p2-keys {
   justify-content: flex-end;
 }
+
 #p2-keys kbd:nth-of-type(1) {
   margin-right: 40px;
 }
+
 #p2-keys kbd:nth-of-type(2) {
   margin-right: 44px
 }
+
 #p2-keys kbd:nth-of-type(3) {
   margin-right: 48px
 }
+
 #p2-keys kbd:nth-of-type(4) {
   margin-right: 50px
 }
+
 #p2-keys kbd:nth-of-type(5) {
   margin-right: 28px
 }
-.move, .a-btn, .b-btn, .c-btn {
+
+.move,
+.a-btn,
+.b-btn,
+.c-btn {
   border-radius: 50%;
   cursor: pointer;
   display: block;
@@ -180,54 +209,69 @@ kbd {
   -ms-user-select: none;
   user-select: none;
 }
-.a-btn, .b-btn, .c-btn {
+
+.a-btn,
+.b-btn,
+.c-btn {
   color: #fff;
   line-height: 2em;
   text-align: center;
 }
-.arrow-left, .arrow-right {
+
+.arrow-left,
+.arrow-right {
   display: block;
   margin: 15px auto;
 }
+
 .arrow-left {
-  width: 0; 
-  height: 0; 
+  width: 0;
+  height: 0;
   border-bottom: 20px solid transparent;
   border-top: 20px solid transparent;
   border-right: 25px solid #2f2f2f;
   font-size: 0;
   line-height: 0;
 }
+
 .arrow-right {
-  width: 0; 
-  height: 0; 
+  width: 0;
+  height: 0;
   border-bottom: 20px solid transparent;
   border-top: 20px solid transparent;
   border-left: 25px solid #2f2f2f;
   font-size: 0;
   line-height: 0;
 }
+
 .move {
   background: #888;
 }
+
 .move:active {
   background: #666;
 }
+
 .a-btn {
   background: #166d71;
 }
+
 .a-btn:active {
   background: #0d3f42;
 }
+
 .b-btn {
   background: #6f2d78;
 }
+
 .b-btn:active {
   background: #571f5f;
 }
+
 .c-btn {
   background: #2d3278;
 }
+
 .c-btn:active {
   background: #1e225a;
 }

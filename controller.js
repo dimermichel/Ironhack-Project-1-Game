@@ -1,5 +1,5 @@
 class Controller {
-    
+
     constructor(jumpControl, rightControl, leftControl, kickControl, blockControl, numberOfPlayer) {
         this.jumpControl = jumpControl
         this.rightControl = rightControl
@@ -60,23 +60,23 @@ class Controller {
             this.keyPressed = (event.type == "keydown") ? true : false
             //this.key = event.keyCode
             switch (event.keyCode) {
-                case this.leftControl: 
+                case this.leftControl:
                     this.leftKey = this.keyPressed
                     break
-                case this.jumpControl: 
+                case this.jumpControl:
                     this.upKey = this.keyPressed
                     break
-                case this.rightControl: 
+                case this.rightControl:
                     this.rightKey = this.keyPressed
                     break
                 case this.blockControl:
                     this.blockKey = this.keyPressed
                     break
-                 case this.kickControl:
+                case this.kickControl:
                     this.keyCount++
                     this.kickKey = this.keyPressed
                     break
-            }   
+            }
         }
     }
 
@@ -85,13 +85,13 @@ class Controller {
             keyCode: key,
         })
         window.dispatchEvent(event)
-    }   
+    }
 
     emuleKeyUp(key) {
         const event = new KeyboardEvent('keyup', {
             keyCode: key,
         })
         window.dispatchEvent(event)
-    } 
+    }
 
 }

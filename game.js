@@ -19,7 +19,7 @@ class Game {
         this.height = 336
         this.sound = new Array()
     }
-    
+
 
     init() {
         // load sounds
@@ -29,17 +29,17 @@ class Game {
         this.animation = this.start.bind(this)
         this.animation()
     }
-   
+
     start() {
-         setInterval(() => {
-         //if(this.process++ == 2) { // animation frame slower
-              this.clear()
-              this.player1.moveAndDraw(this.player2)
-              this.player2.moveAndDraw(this.player1)
-              //this.process = 0
-          //}
-          //requestAnimationFrame(this.animation) //more efficient method but too fast in powerful PCs
-         }, 45)
+        setInterval(() => {
+            //if(this.process++ == 2) { // animation frame slower
+            this.clear()
+            this.player1.moveAndDraw(this.player2)
+            this.player2.moveAndDraw(this.player1)
+            //this.process = 0
+            //}
+            //requestAnimationFrame(this.animation) //more efficient method but too fast in powerful PCs
+        }, 45)
     }
 
     clear() {

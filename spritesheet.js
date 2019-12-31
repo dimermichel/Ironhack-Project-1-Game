@@ -17,19 +17,19 @@ class Spritesheet {
     //Assuming that at start the character will move right side 
     this.facingRight = true
   }
-  
+
   drawSprite(fileName, spriteWidth, spriteHeight, spriteRows, spriteCols) {
-    
+
     //x and y coordinates of the canvas to get the single frame 
     this.srcX = 0
     this.srcY = 0
     //the width and height of our spritesheet
-    this.spriteWidth = spriteWidth 
-    this.spriteHeight = spriteHeight 
-    
+    this.spriteWidth = spriteWidth
+    this.spriteHeight = spriteHeight
+
     //we have two rows and ...X cols in the current sprite sheet
-    this.spriteRows = spriteRows 
-    this.spriteCols = spriteCols 
+    this.spriteRows = spriteRows
+    this.spriteCols = spriteCols
 
     //To get the width of a single sprite we divided the width of sprite with the number of cols. Because all the sprites are of equal width and height 
     this.width = this.spriteWidth / this.spriteCols
@@ -43,17 +43,17 @@ class Spritesheet {
 
     //Updating the frame 
     this.updateFrame()
-    
+
     //Drawing the image 
     dsCtx.drawImage(this.img, this.srcX, this.srcY, this.width, this.height, this.x, this.y, this.width, this.height)
   }
 
   updateFrame() {
-    
+
     //if the charcher is facing right
     if (this.facingRight) {
       //Updating the frame index 
-      this.curFrame = ++ this.curFrame % this.frameCount // 1 % 8 = 1 -- 2 % 8 = 2 -- 8 % 8 = 0
+      this.curFrame = ++this.curFrame % this.frameCount // 1 % 8 = 1 -- 2 % 8 = 2 -- 8 % 8 = 0
       //Calculating the x coordinate for spritesheet 
       this.srcX = this.curFrame * this.width
       //calculating y coordinate for spritesheet
@@ -62,12 +62,12 @@ class Spritesheet {
     //if the charcher is facing left
     if (this.facingLeft) {
       //Updating the frame index in the oposite way
-      this.curFrame --
-       if (this.curFrame < 0) this.curFrame = this.frameCount - 1
+      this.curFrame--
+      if (this.curFrame < 0) this.curFrame = this.frameCount - 1
       //Calculating the x coordinate for spritesheet 
       this.srcX = this.curFrame * this.width
       //calculate srcY 
       this.srcY = this.trackLeft * this.height
-    } 
-	}
+    }
+  }
 }

@@ -1,4 +1,3 @@
-
 startGame()
 
 function startGame() {
